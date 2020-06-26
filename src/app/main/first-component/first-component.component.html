@@ -1,4 +1,4 @@
-
+<div class="col-md-12" *ngIf="showZero" >0</div>
 <div class="col-md-12"> 
     <span>{{firstNum}}</span>
     <span>{{currentOperator}}</span>
@@ -12,27 +12,27 @@
 
     <table>
         <tr>
-            <td class="add" (click)="clickParam('7')" >7</td>
-            <td class="add" (click)="clickParam('8')">8</td>
-            <td class="add" (click)="clickParam('9')">9</td>
-            <td class="add" (click)="getOperator('multiply')" >x</td>
+            <td class="add" (click)="clickParam(7)" >7</td>
+            <td class="add" (click)="clickParam(8)">8</td>
+            <td class="add" (click)="clickParam(9)">9</td>
+            <td class="add" (click)="clickParam('multiply')" >x</td>
         </tr>
         <tr>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td  class="add" (click)="getOperator('sub')">-</td>
+            <td class="add"  (click)="clickParam(4)">4</td>
+            <td class="add" (click)="clickParam(5)">5</td>
+            <td  class="add" (click)="clickParam(6)">6</td>
+            <td  class="add" (click)="clickParam('sub')">-</td>
         </tr>
         <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td class="add" (click)="getOperator('add')">+</td>
+            <td class="add" (click)="clickParam(1)">1</td>
+            <td class="add" (click)="clickParam(2)">2</td>
+            <td class="add" (click)="clickParam(3)">3</td>
+            <td class="add" (click)="clickParam('add')">+</td>
         </tr>
         <tr>
-            <td class="add" (click)="getOperator('divide')">%</td>
-            <td>0</td>
-            <td>.</td>
+            <td class="add" (click)="clickParam('divide')">%</td>
+            <td class="add"  (click)="clickParam(0)">0</td>
+            <td class="add" (click)="clear()">C</td>
             <td  class="add" (click)="showresult()">=</td>
         </tr>
     </table>

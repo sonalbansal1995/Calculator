@@ -14,54 +14,74 @@ export class FirstComponentComponent implements OnInit {
  firstNum:any;
  secondnum:any;
  currentOperator:any;
+ showZero:boolean;
+ 
   ngOnInit() {
     this.showResult= false;
-    this.finalResult = 0;
+    this.showZero = true
+  }
+  clear(){
+  this.showZero = true;
+  this.showResult= false;
+  this.currentOperator = '';
+  this.firstNum ='';
+  this.secondnum='';
+  this.finalResult = '';
   }
   clickParam(num){
-   console.log(num,'ss');
-   this.numArra.push(num);
+    this.showZero = false
+   console.log(typeof(num),'ss');
+   if(typeof(num) === 'number'){
+    this.numArra.push(num);
+   }
+  
+   this.firstNum = (this.numArra[0]);
    if(this.numArra.length ===2){
     // this.getOperator(this.numArra);
    
    }
+
+   if(num === 'multiply'){
+ this.currentOperator = 'x';
+  }
+  else if(num === 'sub'){
+    this.currentOperator = '-';
+  }
+  else if(num === 'add'){
+    this.currentOperator = '+';
+  }
+  else if(num === 'divide'){
+    this.currentOperator = '%';
+  }
+  this.secondnum = (this.numArra[1]);
+
+
   }
 
   showresult(){
-    console.log('in show')
+    console.log('in show');
+   
     this.showResult = true;
-  }
-
-  getOperator(val){
-   if(val === 'multiply'){
-     var numbers =this.numArra;
-
-  this.firstNum = parseInt(numbers[0]);
-  this.secondnum = parseInt(numbers[1]);
-  this.currentOperator = 'x'
-  let res =  (this.firstNum * this.secondnum);
-  this.finalResult = res;
-   // let res = parseInt(numbers[0])* parseInt(numbers[1]);
-
-    // if (this.showResult === true){
-    //   console.log('show resultttt')
-    //   this.finalResult = res;
-    //   console.log(res,'ressss');
-    // }
-    // else{
-    //   this.finalResult = '0';
-    // }
+    console.log(this.currentOperator,'kkkk')
+    if(this.currentOperator === 'x'){
+      let res =  (this.firstNum * this.secondnum);
+      this.finalResult = res;
+    }
+    else if(this.currentOperator === '-'){
+      let res =  (this.firstNum - this.secondnum);
+      this.finalResult = res;
+    }
+    else if(this.currentOperator === '+'){
+      let res =  (this.firstNum + this.secondnum);
+      this.finalResult = res;
+    }
+    else if(this.currentOperator === '%'){
+      let res =  (this.firstNum % this.secondnum);
+      this.finalResult = res;
+    }
  
-   }
-  else if(val === 'sub'){
-    let res = val[0]-val[1]
-  }
-  else if(val === 'add'){
-    let res = val[0]+val[1]
-  }
-  else if(val === 'divide'){
-    let res = val[0]%val[1]
-  }
   }
 
 }
+
+

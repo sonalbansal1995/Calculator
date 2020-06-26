@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"col-md-12\"> \n    <span>{{firstNum}}</span>\n    <span>{{currentOperator}}</span>\n    <span>{{secondnum}}</span>\n    <span *ngIf=\"showResult\">=</span>\n    <span>  {{finalResult}}</span>\n  \n\n</div>\n<div class=\"col-md-12 \">\n\n    <table>\n        <tr>\n            <td class=\"add\" (click)=\"clickParam('7')\" >7</td>\n            <td class=\"add\" (click)=\"clickParam('8')\">8</td>\n            <td class=\"add\" (click)=\"clickParam('9')\">9</td>\n            <td class=\"add\" (click)=\"getOperator('multiply')\" >x</td>\n        </tr>\n        <tr>\n            <td>4</td>\n            <td>5</td>\n            <td>6</td>\n            <td  class=\"add\" (click)=\"getOperator('sub')\">-</td>\n        </tr>\n        <tr>\n            <td>1</td>\n            <td>2</td>\n            <td>3</td>\n            <td class=\"add\" (click)=\"getOperator('add')\">+</td>\n        </tr>\n        <tr>\n            <td class=\"add\" (click)=\"getOperator('divide')\">%</td>\n            <td>0</td>\n            <td>.</td>\n            <td  class=\"add\" (click)=\"showresult()\">=</td>\n        </tr>\n    </table>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"col-md-12\" *ngIf=\"showZero\" >0</div>\n<div class=\"col-md-12\"> \n    <span>{{firstNum}}</span>\n    <span>{{currentOperator}}</span>\n    <span>{{secondnum}}</span>\n    <span *ngIf=\"showResult\">=</span>\n    <span>  {{finalResult}}</span>\n  \n\n</div>\n<div class=\"col-md-12 \">\n\n    <table>\n        <tr>\n            <td class=\"add\" (click)=\"clickParam(7)\" >7</td>\n            <td class=\"add\" (click)=\"clickParam(8)\">8</td>\n            <td class=\"add\" (click)=\"clickParam(9)\">9</td>\n            <td class=\"add\" (click)=\"clickParam('multiply')\" >x</td>\n        </tr>\n        <tr>\n            <td class=\"add\"  (click)=\"clickParam(4)\">4</td>\n            <td class=\"add\" (click)=\"clickParam(5)\">5</td>\n            <td  class=\"add\" (click)=\"clickParam(6)\">6</td>\n            <td  class=\"add\" (click)=\"clickParam('sub')\">-</td>\n        </tr>\n        <tr>\n            <td class=\"add\" (click)=\"clickParam(1)\">1</td>\n            <td class=\"add\" (click)=\"clickParam(2)\">2</td>\n            <td class=\"add\" (click)=\"clickParam(3)\">3</td>\n            <td class=\"add\" (click)=\"clickParam('add')\">+</td>\n        </tr>\n        <tr>\n            <td class=\"add\" (click)=\"clickParam('divide')\">%</td>\n            <td class=\"add\"  (click)=\"clickParam(0)\">0</td>\n            <td class=\"add\" (click)=\"clear()\">C</td>\n            <td  class=\"add\" (click)=\"showresult()\">=</td>\n        </tr>\n    </table>\n</div>");
 
 /***/ }),
 
@@ -457,45 +457,59 @@ let FirstComponentComponent = class FirstComponentComponent {
     }
     ngOnInit() {
         this.showResult = false;
-        this.finalResult = 0;
+        this.showZero = true;
+    }
+    clear() {
+        this.showZero = true;
+        this.showResult = false;
+        this.currentOperator = '';
+        this.firstNum = '';
+        this.secondnum = '';
+        this.finalResult = '';
     }
     clickParam(num) {
-        console.log(num, 'ss');
-        this.numArra.push(num);
+        this.showZero = false;
+        console.log(typeof (num), 'ss');
+        if (typeof (num) === 'number') {
+            this.numArra.push(num);
+        }
+        this.firstNum = (this.numArra[0]);
         if (this.numArra.length === 2) {
             // this.getOperator(this.numArra);
         }
+        if (num === 'multiply') {
+            this.currentOperator = 'x';
+        }
+        else if (num === 'sub') {
+            this.currentOperator = '-';
+        }
+        else if (num === 'add') {
+            this.currentOperator = '+';
+        }
+        else if (num === 'divide') {
+            this.currentOperator = '%';
+        }
+        this.secondnum = (this.numArra[1]);
     }
     showresult() {
         console.log('in show');
         this.showResult = true;
-    }
-    getOperator(val) {
-        if (val === 'multiply') {
-            var numbers = this.numArra;
-            this.firstNum = parseInt(numbers[0]);
-            this.secondnum = parseInt(numbers[1]);
-            this.currentOperator = 'x';
+        console.log(this.currentOperator, 'kkkk');
+        if (this.currentOperator === 'x') {
             let res = (this.firstNum * this.secondnum);
             this.finalResult = res;
-            // let res = parseInt(numbers[0])* parseInt(numbers[1]);
-            // if (this.showResult === true){
-            //   console.log('show resultttt')
-            //   this.finalResult = res;
-            //   console.log(res,'ressss');
-            // }
-            // else{
-            //   this.finalResult = '0';
-            // }
         }
-        else if (val === 'sub') {
-            let res = val[0] - val[1];
+        else if (this.currentOperator === '-') {
+            let res = (this.firstNum - this.secondnum);
+            this.finalResult = res;
         }
-        else if (val === 'add') {
-            let res = val[0] + val[1];
+        else if (this.currentOperator === '+') {
+            let res = (this.firstNum + this.secondnum);
+            this.finalResult = res;
         }
-        else if (val === 'divide') {
-            let res = val[0] % val[1];
+        else if (this.currentOperator === '%') {
+            let res = (this.firstNum % this.secondnum);
+            this.finalResult = res;
         }
     }
 };
@@ -576,7 +590,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Workarea Sonal\interview\firstApp\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Sonal\Documents\GitHub\Calculator\src\main.ts */"./src/main.ts");
 
 
 /***/ })
