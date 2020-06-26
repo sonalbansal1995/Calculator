@@ -60,10 +60,8 @@ export class FirstComponentComponent implements OnInit {
   }
 
   showresult(){
-    console.log('in show');
    
     this.showResult = true;
-    console.log(this.currentOperator,'kkkk')
     if(this.currentOperator === 'x'){
       let res =  (this.firstNum * this.secondnum);
       this.finalResult = res;

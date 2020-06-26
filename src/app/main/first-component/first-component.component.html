@@ -15,25 +15,25 @@
             <td class="add" (click)="clickParam(7)" >7</td>
             <td class="add" (click)="clickParam(8)">8</td>
             <td class="add" (click)="clickParam(9)">9</td>
-            <td class="add" (click)="clickParam('multiply')" >x</td>
+            <td class="add coloLastColum" (click)="clickParam('multiply')" >x</td>
         </tr>
         <tr>
             <td class="add"  (click)="clickParam(4)">4</td>
             <td class="add" (click)="clickParam(5)">5</td>
             <td  class="add" (click)="clickParam(6)">6</td>
-            <td  class="add" (click)="clickParam('sub')">-</td>
+            <td  class="add coloLastColum" (click)="clickParam('sub')">-</td>
         </tr>
         <tr>
             <td class="add" (click)="clickParam(1)">1</td>
             <td class="add" (click)="clickParam(2)">2</td>
             <td class="add" (click)="clickParam(3)">3</td>
-            <td class="add" (click)="clickParam('add')">+</td>
+            <td class="add coloLastColum" (click)="clickParam('add')">+</td>
         </tr>
         <tr>
             <td class="add" (click)="clickParam('divide')">%</td>
             <td class="add"  (click)="clickParam(0)">0</td>
             <td class="add" (click)="clear()">C</td>
-            <td  class="add" (click)="showresult()">=</td>
+            <td  class="add equalBtn" (click)="showresult()">=</td>
         </tr>
     </table>
 </div>

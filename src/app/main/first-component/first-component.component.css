@@ -20,3 +20,10 @@ td{
 .add{
     cursor: pointer;
 }
+.equalBtn{
+    background-color: #6e98e4;
+    color: white;
+}
+.coloLastColum{
+    background-color: #efefef;
+}
