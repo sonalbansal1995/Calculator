@@ -30,8 +30,7 @@ export class FirstComponentComponent implements OnInit {
   this.finalResult = '';
   }
   clickParam(num){
-    this.showZero = false
-   console.log(typeof(num),'ss');
+    this.showZero = false;
    if(typeof(num) === 'number'){
     this.numArra.push(num);
    }

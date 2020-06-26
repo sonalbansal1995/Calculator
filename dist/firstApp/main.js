@@ -470,7 +470,6 @@ let FirstComponentComponent = class FirstComponentComponent {
     }
     clickParam(num) {
         this.showZero = false;
-        console.log(typeof (num), 'ss');
         if (typeof (num) === 'number') {
             this.numArra.push(num);
         }
