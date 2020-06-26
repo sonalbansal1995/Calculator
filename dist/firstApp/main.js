@@ -460,6 +460,7 @@ let FirstComponentComponent = class FirstComponentComponent {
         this.showZero = true;
     }
     clear() {
+        this.numArra = [];
         this.showZero = true;
         this.showResult = false;
         this.currentOperator = '';

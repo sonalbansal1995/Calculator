@@ -21,6 +21,7 @@ export class FirstComponentComponent implements OnInit {
     this.showZero = true
   }
   clear(){
+    this.numArra =[];
   this.showZero = true;
   this.showResult= false;
   this.currentOperator = '';
