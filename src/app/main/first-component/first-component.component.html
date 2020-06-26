@@ -1,0 +1,39 @@
+
+<div class="col-md-12"> 
+    <span>{{firstNum}}</span>
+    <span>{{currentOperator}}</span>
+    <span>{{secondnum}}</span>
+    <span *ngIf="showResult">=</span>
+    <span>  {{finalResult}}</span>
+  
+
+</div>
+<div class="col-md-12 ">
+
+    <table>
+        <tr>
+            <td class="add" (click)="clickParam('7')" >7</td>
+            <td class="add" (click)="clickParam('8')">8</td>
+            <td class="add" (click)="clickParam('9')">9</td>
+            <td class="add" (click)="getOperator('multiply')" >x</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td  class="add" (click)="getOperator('sub')">-</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td class="add" (click)="getOperator('add')">+</td>
+        </tr>
+        <tr>
+            <td class="add" (click)="getOperator('divide')">%</td>
+            <td>0</td>
+            <td>.</td>
+            <td  class="add" (click)="showresult()">=</td>
+        </tr>
+    </table>
+</div>

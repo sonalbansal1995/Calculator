@@ -1,0 +1,22 @@
+table{
+    font-size: 12px;
+    font-size: 12px;
+    width: 28%;
+}
+
+th,td{
+    border: 1px solid gray 
+}
+
+tr{
+    height: 47px;
+}
+td{
+    font-size: 17px;
+    text-align: center;
+    font-weight: 800;
+}
+
+.add{
+    cursor: pointer;
+}
